@@ -1,38 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-// import { Button, form, input, ButtonToolbar, Button } from 'react-bootstrap'
-import Navbar from './components/Navbar'
-import Home from './components/Home'
-import About from './components/About'
-import Contact from './components/Contact'
-import Navigation from './components/Navigation'
-import Main from './components/Main'
-import Vote from './components/Vote';
-import PropTypes from 'prop-types'
-import { BrowserRouter, Route, withRouter, Switch } from 'react-router-dom';
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
 
+import PostQuestion from './components/post.question';
+import Questions from './components/questions';
+import PostAnswer from './components/post.answer';
 
-const App =({ store })=>{
-  // alert('render app.js')
-return (<Provider store={store}>
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-<BrowserRouter>
-<Switch>
-<Route path="/" component={Vote} />
-<Route exact path="/main" component={Main} />
-</Switch>
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-</BrowserRouter>
-</Provider>)
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Questions} />
+          <Route path="/answers/:questionId" component={PostAnswer} />
+          <Route path="/postquestion" component={PostQuestion} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
-
-// App.propTypes = {
-//   store:PropTypes.object.isRequired
-// }
-  
-
 
 export default App;

@@ -26,9 +26,3 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.top {
-  width:70%;
-  margin:0 auto;
-  border:1px solid black
-}
